@@ -6,16 +6,16 @@ class FeedingsController < ApplicationController
     @feedings = Feeding.paginate(:page => params[:page]).order("datetime desc")
     @page_title = "Feeding listing"
 
-    @wets = Feeding.where("wets=1 and month(feeding_date)=? and day(feeding_date)=?", Date.today.mon, Date.today.day).count
-    @poops = Feeding.where("poops=1 and month(feeding_date)=? and day(feeding_date)=?", Date.today.mon, Date.today.day).count
+    @wets = Feeding.where("wets=1 and month(datetime)=? and day(datetime)=?", Date.today.mon, Date.today.day).count
+    @poops = Feeding.where("poops=1 and month(datetime)=? and day(datetime)=?", Date.today.mon, Date.today.day).count
     @date_today = Date.today
 
-    @wets_yesterday = Feeding.where("wets=1 and month(feeding_date)=? and day(feeding_date)=?", Date.today.mon, Date.today.day-1).count
-    @poops_yesterday = Feeding.where("poops=1 and month(feeding_date)=? and day(feeding_date)=?", Date.today.mon, Date.today.day-1).count
+    @wets_yesterday = Feeding.where("wets=1 and month(datetime)=? and day(datetime)=?", Date.today.mon, Date.today.day-1).count
+    @poops_yesterday = Feeding.where("poops=1 and month(datetime)=? and day(datetime)=?", Date.today.mon, Date.today.day-1).count
 
     respond_to do |format|
       format.html # index.html.erb
-      format.json { render json: Feeding.order("feeding_date desc, feeding_time desc").all }
+      format.json { render json: Feeding.order("datetime desc").all }
     end
   end
 
