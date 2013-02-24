@@ -1,4 +1,6 @@
 Iya::Application.routes.draw do
+  resources :lookups
+
   resources :doctor_visits
 
   resources :vaccinations

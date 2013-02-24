@@ -1,0 +1,11 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/Fixtures.html
+
+one:
+  lookup_name: MyString
+  lookup_key: MyString
+  lookup_value: MyString
+
+two:
+  lookup_name: MyString
+  lookup_key: MyString
+  lookup_value: MyString

@@ -2,10 +2,8 @@
 
 <table>
   <tr>
-<!--     <th>Feeding date</th>
-    <th>Feeding time</th> -->
-    <th>Feeding time</th>
-    <th>Feeding type</th>
+    <th>Activity time</th>
+    <th>Activity</th>
     <th>No of bottles</th>
     <th>Swallows heard</th>
     <th>Spit</th>
@@ -56,6 +54,9 @@
 
 <%= will_paginate @feedings %>
 <br/>
+<%= link_to 'New Feeding', new_feeding_path %>
+
+<br/>
 <h4>Current stats today <%= @date_today %></h4>
 Poop count: <%= @poops %><br>
 Wet count: <%= @wets %><br>
@@ -68,4 +69,3 @@ Wet count: <%= @wets_yesterday %><br>
 
 <br />
 
-<%= link_to 'New Feeding', new_feeding_path %>

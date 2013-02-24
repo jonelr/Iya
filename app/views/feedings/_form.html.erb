@@ -16,18 +16,16 @@
     <%= f.datetime_select :datetime %>
   </div>
 
-  <!-- <div class="field">
-    <%= f.label :feeding_date %><br />
-    <%= f.date_select :feeding_date %>
-  </div>
-  <div class="field">
-    <%= f.label :feeding_time %><br />
-    <%= f.time_select :feeding_time %>
-  </div> -->
   <div class="field">
     <%= f.label :feeding_type %><br />
-    <%= f.text_field :feeding_type %>
+    <%= collection_select(:feeding, :feeding_type, Lookup.where("lookup_name='FeedingType'"), :lookup_key, :lookup_value ) %>
   </div>
+
+  <!-- <div class="field">
+    <%= f.label :feeding_type %><br />
+    <%= f.text_field :feeding_type %>
+  </div> -->
+  
   <div class="field">
     <%= f.label :no_of_bottles %><br />
     <%= f.number_field :no_of_bottles %>
