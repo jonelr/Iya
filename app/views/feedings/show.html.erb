@@ -1,0 +1,50 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <b>Feeding date:</b>
+  <%= @feeding.feeding_date %>
+</p>
+
+<p>
+  <b>Feeding time:</b>
+  <%= @feeding.feeding_time %>
+</p>
+
+<p>
+  <b>Feeding type:</b>
+  <%= @feeding.feeding_type %>
+</p>
+
+<p>
+  <b>No of bottles:</b>
+  <%= @feeding.no_of_bottles %>
+</p>
+
+<p>
+  <b>Swallows heard:</b>
+  <%= @feeding.swallows_heard %>
+</p>
+
+<p>
+  <b>Spit:</b>
+  <%= @feeding.spit %>
+</p>
+
+<p>
+  <b>Wets:</b>
+  <%= @feeding.wets %>
+</p>
+
+<p>
+  <b>Poops:</b>
+  <%= @feeding.poops %>
+</p>
+
+<p>
+  <b>Comments:</b>
+  <%= @feeding.comments %>
+</p>
+
+
+<%= link_to 'Edit', edit_feeding_path(@feeding) %> |
+<%= link_to 'Back', feedings_path %>

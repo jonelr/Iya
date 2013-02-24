@@ -1,0 +1,70 @@
+<h1>Listing feedings</h1>
+
+<table>
+  <tr>
+    <th>Feeding date</th>
+    <th>Feeding time</th>
+    <th>Feeding type</th>
+    <th>No of bottles</th>
+    <th>Swallows heard</th>
+    <th>Spit</th>
+    <th>Wets</th>
+    <th>Poops</th>
+    <th>Actions</th>
+  </tr>
+
+<% i = 0 %>
+<% @feedings.each do |feeding| %>
+    <% if i % 2 == 0 %>
+        <tr class="silver">
+    <% else %>
+        <tr>
+    <% end %>
+    <% i+=1 %>
+    <td><%= feeding.feeding_date %></td>
+    <td><%= feeding.feeding_time.strftime("%I:%M%p") %></td>
+    <td><%= feeding.feeding_type %></td>
+    <td><%= feeding.no_of_bottles %></td>
+    <td><%= feeding.swallows_heard %></td>
+    <td><%= feeding.spit %></td>
+    <% if feeding.wets %>
+    <td style="background-color:green; color:white">
+    <% else %>
+    <td>
+    <% end %>
+        <%= feeding.wets %>
+    </td>
+    <% if feeding.poops %>
+    <td style="background-color:green; color:white">
+    <% else %>
+    <td>
+    <% end %>
+        <%= feeding.poops %>
+    </td>
+    <td>
+        <%= link_to 'Edit', edit_feeding_path(feeding) %> |
+        <%= link_to 'Delete', feeding, method: :delete, data: { confirm: 'Are you sure?' } %> 
+        <% if feeding.comments.length > 0 %>
+              | <%= link_to 'Comments', feeding, :title => feeding.comments, :onclick => 'return false;' %> 
+        <% end %>
+
+    </td>
+  </tr>
+<% end %>
+</table>
+
+<%= will_paginate @feedings %>
+<br/>
+<h4>Current stats today <%= @date_today %></h4>
+Poop count: <%= @poops %><br>
+Wet count: <%= @wets %><br>
+
+<br/>
+<h4>Current stats yesterday <%= @date_today-1 %></h4>
+Poop count: <%= @poops_yesterday %><br>
+Wet count: <%= @wets_yesterday %><br>
+
+
+<br />
+
+<%= link_to 'New Feeding', new_feeding_path %>

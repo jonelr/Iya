@@ -1,0 +1,23 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/Fixtures.html
+
+one:
+  feeding_date: 2013-02-19
+  feeding_time: 2013-02-19 17:02:29
+  feeding_type: MyString
+  no_of_bottles: 1
+  swallows_heard: false
+  spit: false
+  wets: false
+  poops: false
+  comments: MyText
+
+two:
+  feeding_date: 2013-02-19
+  feeding_time: 2013-02-19 17:02:29
+  feeding_type: MyString
+  no_of_bottles: 1
+  swallows_heard: false
+  spit: false
+  wets: false
+  poops: false
+  comments: MyText

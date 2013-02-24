@@ -1,0 +1,51 @@
+<%= form_for(@feeding) do |f| %>
+  <% if @feeding.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(@feeding.errors.count, "error") %> prohibited this feeding from being saved:</h2>
+
+      <ul>
+      <% @feeding.errors.full_messages.each do |msg| %>
+        <li><%= msg %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="field">
+    <%= f.label :feeding_date %><br />
+    <%= f.date_select :feeding_date %>
+  </div>
+  <div class="field">
+    <%= f.label :feeding_time %><br />
+    <%= f.time_select :feeding_time %>
+  </div>
+  <div class="field">
+    <%= f.label :feeding_type %><br />
+    <%= f.text_field :feeding_type %>
+  </div>
+  <div class="field">
+    <%= f.label :no_of_bottles %><br />
+    <%= f.number_field :no_of_bottles %>
+  </div>
+  <div class="field">
+    <%= f.label :swallows_heard %>
+    <%= f.check_box :swallows_heard %>
+    |
+    <%= f.label :spit %>
+    <%= f.check_box :spit %>
+    |
+    <%= f.label :wets %>
+    <%= f.check_box :wets %>
+    |
+    <%= f.label :poops %>
+    <%= f.check_box :poops %>
+  </div>
+  
+  <div class="field">
+    <%= f.label :comments %><br />
+    <%= f.text_area :comments %>
+  </div>
+  <div class="actions">
+    <%= f.submit %>
+  </div>
+<% end %>
