@@ -1,13 +1,13 @@
 # Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/Fixtures.html
 
 one:
-  title: MyString
-  type: 
-  date: 2013-02-21
+  date: 2013-02-25
   description: MyString
+  title: MyString
+  vacination_type: MyString
 
 two:
-  title: MyString
-  type: 
-  date: 2013-02-21
+  date: 2013-02-25
   description: MyString
+  title: MyString
+  vacination_type: MyString

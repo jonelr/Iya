@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20130224143539) do
+ActiveRecord::Schema.define(:version => 20130225170548) do
 
   create_table "contacts", :force => true do |t|
     t.string   "firstname"
@@ -67,12 +67,12 @@ ActiveRecord::Schema.define(:version => 20130224143539) do
   end
 
   create_table "vaccinations", :force => true do |t|
-    t.string   "title"
     t.date     "date"
     t.string   "description"
+    t.string   "title"
+    t.string   "vacination_type"
     t.datetime "created_at",      :null => false
     t.datetime "updated_at",      :null => false
-    t.string   "vacination_type"
   end
 
 end
