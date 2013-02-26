@@ -1,27 +1,11 @@
-<h1>Listing doctor_visits</h1>
+<div data-role="navbar" data-bar-theme="c">
+  <ul>
+    <li><%= link_to 'New...', new_doctor_visit_path %></li>
+  </ul>
+</div>
 
-<table>
-  <tr>
-    <th>Date</th>
-    <th>For</th>
-    <th>Comment</th>
-    <th></th>
-    <th></th>
-    <th></th>
-  </tr>
-
-<% @doctor_visits.each do |doctor_visit| %>
-  <tr>
-    <td><%= doctor_visit.date %></td>
-    <td><%= doctor_visit.for %></td>
-    <td><%= doctor_visit.comment %></td>
-    <td><%= link_to 'Show', doctor_visit %></td>
-    <td><%= link_to 'Edit', edit_doctor_visit_path(doctor_visit) %></td>
-    <td><%= link_to 'Destroy', doctor_visit, method: :delete, data: { confirm: 'Are you sure?' } %></td>
-  </tr>
-<% end %>
-</table>
-
-<br />
-
-<%= link_to 'New Doctor visit', new_doctor_visit_path %>
+<ul data-role="listview" data-divider-them="b" data-inset="true">
+  <% @doctor_visits.each do |doctor_visit| %>
+    <li><%= link_to doctor_visit.comment, doctor_visit %></li>
+  <% end %>
+</ul>
