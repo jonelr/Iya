@@ -11,44 +11,39 @@
     </div>
   <% end %>
 
-  <div class="field">
-    <%= f.label :datetime %><br />
-    <%= f.datetime_select :datetime %>
+  <div data-role="navbar" data-theme="b">
+    <ul>
+      <li><%= link_to 'Cancel', @feeding %></li>
+    </ul>
   </div>
 
-  <div class="field">
-    <%= f.label :feeding_type %><br />
-    <%= collection_select(:feeding, :feeding_type, Lookup.where("lookup_name='FeedingType'"), :lookup_key, :lookup_value ) %>
-  </div>
+  <ul data-role="listview" data-divider-theme="a" data-inset="true">
+    <li data-role="list-divider"><%= f.label :datetime %></li>
+    <li><%= f.datetime_select :datetime %></li>
 
-  <!-- <div class="field">
-    <%= f.label :feeding_type %><br />
-    <%= f.text_field :feeding_type %>
-  </div> -->
-  
-  <div class="field">
-    <%= f.label :no_of_bottles %><br />
-    <%= f.number_field :no_of_bottles %>
-  </div>
-  <div class="field">
-    <%= f.label :swallows_heard %>
-    <%= f.check_box :swallows_heard %>
-    |
-    <%= f.label :spit %>
-    <%= f.check_box :spit %>
-    |
-    <%= f.label :wets %>
-    <%= f.check_box :wets %>
-    |
-    <%= f.label :poops %>
-    <%= f.check_box :poops %>
-  </div>
-  
-  <div class="field">
-    <%= f.label :comments %><br />
-    <%= f.text_area :comments %>
-  </div>
+    <li data-role="list-divider"><%= f.label :feeding_type %></li>
+    <li><%= collection_select(:feeding, :feeding_type, Lookup.where("lookup_name='FeedingType'"), :lookup_key, :lookup_value ) %></li>
+
+    <li data-role="list-divider"><%= f.label :no_of_bottles %></li>
+    <li><%= f.number_field :no_of_bottles %></li>
+
+    <li data-role="list-divider"><%= f.label :wets %></li>
+    <li><%= f.check_box :wets%></li>
+
+    <li data-role="list-divider"><%= f.label :poops %></li>
+    <li><%= f.check_box :poops%></li>
+
+    <li data-role="list-divider"><%= f.label :comments %></li>
+    <li><%= f.text_area :comments%></li>
+  </ul>
+
   <div class="actions">
     <%= f.submit %>
+  </div>
+
+  <div data-role="navbar">
+    <ul>
+      <li><%= link_to 'Cancel', @feeding %></li>
+    </ul>
   </div>
 <% end %>

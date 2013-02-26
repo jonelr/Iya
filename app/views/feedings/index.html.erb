@@ -1,71 +1,30 @@
 <h1>Listing feedings</h1>
 
-<table>
-  <tr>
-    <th>Activity time</th>
-    <th>Activity</th>
-    <th>No of bottles</th>
-    <th>Swallows heard</th>
-    <th>Spit</th>
-    <th>Wets</th>
-    <th>Poops</th>
-    <th>Actions</th>
-  </tr>
+<div data-role="navbar" data-bar-theme="c">
+    <ul>
+        <li><%= link_to 'New...', new_feeding_path %></li>
+    </ul>
+</div>
 
-<% i = 0 %>
-<% @feedings.each do |feeding| %>
-    <% if i % 2 == 0 %>
-        <tr class="silver">
-    <% else %>
-        <tr>
-    <% end %>
-    <% i+=1 %>
-    
-    <td><%= feeding.datetime.strftime('%m/%d/%Y %I:%M%p') %></td>
-    <td><%= feeding.feeding_type %></td>
-    <td><%= feeding.no_of_bottles %></td>
-    <td><%= feeding.swallows_heard %></td>
-    <td><%= feeding.spit %></td>
-    <% if feeding.wets %>
-    <td style="background-color:green; color:white">
-    <% else %>
-    <td>
-    <% end %>
-        <%= feeding.wets %>
-    </td>
-    <% if feeding.poops %>
-    <td style="background-color:green; color:white">
-    <% else %>
-    <td>
-    <% end %>
-        <%= feeding.poops %>
-    </td>
-    <td>
-        <%= link_to 'Edit', edit_feeding_path(feeding) %> |
-        <%= link_to 'Delete', feeding, method: :delete, data: { confirm: 'Are you sure?' } %> 
-        <% if feeding.comments.length > 0 %>
-              | <%= link_to 'Comments', feeding, :title => feeding.comments, :onclick => 'return false;' %> 
-        <% end %>
+<ul data-role="listview" data-inset="true">
+    <li data-role="list-divider" data-theme="a">
+        Curent stats for today <%= @date_today.strftime("%m/%d/%Y") %>
+    </li>
+    <li>Poop count: <%= @poops %></li>
+    <li>Wet count: <%= @wets %></li>
 
-    </td>
-  </tr>
-<% end %>
-</table>
+    <li data-role="list-divider" data-theme="a">
+        Curent stats for yesterday <%= (@date_today-1).strftime("%m/%d/%Y") %>
+    </li>
+    <li>Poop count: <%= @poops_yesterday %></li>
+    <li>Wet count: <%= @wets_yesterday %></li>
 
-<%= will_paginate @feedings %>
-<br/>
-<%= link_to 'New Feeding', new_feeding_path %>
+</ul>
+
+<ul data-role="listview" data-divider-them="b" data-inset="true">
+  <% @feedings.each do |feeding| %>
+    <li><%= link_to feeding.datetime.strftime('%m/%d/%Y %I:%M%p'), feeding %></li>
+  <% end %>
+</ul>
 
 <br/>
-<h4>Current stats today <%= @date_today %></h4>
-Poop count: <%= @poops %><br>
-Wet count: <%= @wets %><br>
-
-<br/>
-<h4>Current stats yesterday <%= @date_today-1 %></h4>
-Poop count: <%= @poops_yesterday %><br>
-Wet count: <%= @wets_yesterday %><br>
-
-
-<br />
-
