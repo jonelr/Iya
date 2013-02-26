@@ -1,45 +1,30 @@
-<p id="notice"><%= notice %></p>
+<div data-role="navbar">
+  <ul>
+    <li><%= link_to 'Edit', edit_contact_path(@contact) %></li>
+    <li><%= link_to 'Delete', @contact, method: :delete, data: { confirm: 'Are you sure?' } %></li>
+    <li><%= link_to 'List', contacts_path %>
+  </ul>
+</div>
 
-<p>
-  <b>Firstname:</b>
-  <%= @contact.firstname %>
-</p>
+<ul data-role="listview" data-divider-theme="a" data-inset="true">
+  <li data-role="list-divider">Firstname</li>
+  <li><%= @contact.firstname %></li>
+  <li data-role="list-divider">Lastname</li>
+  <li><%= @contact.lastname %></li>
+  <li data-role="list-divider">Email</li>
+  <li><%= @contact.email %></li> 
+  <li data-role="list-divider">Phone</li>
+  <li><%= @contact.phone %></li>
 
-<p>
-  <b>Lastname:</b>
-  <%= @contact.lastname %>
-</p>
+  <li data-role="list-divider">Address</li>
+  <li><%= @contact.address %></li>
 
-<p>
-  <b>Email:</b>
-  <%= @contact.email %>
-</p>
+  <li data-role="list-divider">City</li>
+  <li><%= @contact.city %></li>
 
-<p>
-  <b>Phone:</b>
-  <%= @contact.phone %>
-</p>
+  <li data-role="list-divider">State</li>
+  <li><%= @contact.state %></li>
 
-<p>
-  <b>Address:</b>
-  <%= @contact.address %>
-</p>
-
-<p>
-  <b>City:</b>
-  <%= @contact.city %>
-</p>
-
-<p>
-  <b>State:</b>
-  <%= @contact.state %>
-</p>
-
-<p>
-  <b>Zipcode:</b>
-  <%= @contact.zipcode %>
-</p>
-
-
-<%= link_to 'Edit', edit_contact_path(@contact) %> |
-<%= link_to 'Back', contacts_path %>
+  <li data-role="list-divider">Zipcode</li>
+  <li><%= @contact.zipcode %></li>
+</ul>

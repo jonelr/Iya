@@ -11,39 +11,48 @@
     </div>
   <% end %>
 
-  <div class="field">
-    <%= f.label :firstname %><br />
-    <%= f.text_field :firstname %>
+  <div data-role="navbar" data-theme="b">
+    <ul>
+      <li><%= link_to 'Cancel', @contact %></li>
+      <li><%= link_to 'List', contacts_path %></li>
   </div>
-  <div class="field">
-    <%= f.label :lastname %><br />
-    <%= f.text_field :lastname %>
-  </div>
-  <div class="field">
-    <%= f.label :email %><br />
-    <%= f.text_field :email %>
-  </div>
-  <div class="field">
-    <%= f.label :phone %><br />
-    <%= f.text_field :phone %>
-  </div>
-  <div class="field">
-    <%= f.label :address %><br />
-    <%= f.text_field :address %>
-  </div>
-  <div class="field">
-    <%= f.label :city %><br />
-    <%= f.text_field :city %>
-  </div>
-  <div class="field">
-    <%= f.label :state %><br />
-    <%= f.text_field :state %>
-  </div>
-  <div class="field">
-    <%= f.label :zipcode %><br />
-    <%= f.text_field :zipcode %>
-  </div>
+
+  <ul data-role="listview" data-divider-theme="a" data-inset="true">
+
+    <li data-role="list-divider"><%= f.label :firstname %></li>
+    <li><%= f.text_field :firstname %></li>
+
+    <li data-role="list-divider"><%= f.label :lastname %></li>
+    <li><%= f.text_field :lastname %></li>
+
+    <li data-role="list-divider"><%= f.label :email %></li>
+    <li><%= f.text_field :email %></li>
+
+    <li data-role="list-divider"><%= f.label :phone %></li>
+    <li><%= f.text_field :phone%></li>
+
+    <li data-role="list-divider"><%= f.label :address %></li>
+    <li><%= f.text_field :address%></li>
+
+    <li data-role="list-divider"><%= f.label :city %></li>
+    <li><%= f.text_field :city%></li>
+
+    <li data-role="list-divider"><%= f.label :state %></li>
+    <li><%= f.text_field :state%></li>
+
+    <li data-role="list-divider"><%= f.label :zipcode %></li>
+    <li><%= f.text_field :zipcode%></li>
+
+  </ul>
+
   <div class="actions">
     <%= f.submit %>
   </div>
+
+  <div data-role="navbar" data-theme="b">
+    <ul>
+      <li><%= link_to 'Cancel', @contact %></li>
+      <li><%= link_to 'List', contacts_path %></li>
+  </div>
+  
 <% end %>
