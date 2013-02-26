@@ -13,20 +13,31 @@
 
   <div data-role="navbar" data-theme="b">
     <ul>
-      <li><%= link_to 'Cancel', @doctor_visit %></li>
-      <li><%= link_to 'List', doctor_visits_path %></li>
+      <li><%= link_to 'Cancel', doctor_visits_path %></li>
     </ul>
   </div>
 
   <ul data-role="listview" data-inset="true">
-    <li data-role="list-divider" data-theme="a"><%= f.label :date %></li>
-    <li><%= f.datetime_select :date %></li>
+    <li data-role="list-divider" data-theme="a">
+      <%= f.label :date %>
+    </li>
+    <li>
+      <%= f.datetime_select :date %>
+    </li>
 
-    <li data-role="list-divider" data-theme="a"><%= f.label :for %></li>
-    <li><%= f.text_field :for %></li>
+    <li data-role="list-divider" data-theme="a">
+      <%= f.label :for %>
+    </li>
+    <li>
+      <%= f.text_field :for %>
+    </li>
 
-    <li data-role="list-divider" data-theme="a"><%= f.label :comment %></li>
-    <li><%= f.text_area :comment %>
+    <li data-role="list-divider" data-theme="a">
+      <%= f.label :comment %>
+    </li>
+    <li>
+      <%= f.text_area :comment %>
+    </li>
   
     <div class="actions">
       <%= f.submit %>
@@ -35,8 +46,7 @@
 
   <div data-role="navbar" data-theme="b">
     <ul>
-      <li><%= link_to 'Cancel', @doctor_visit %></li>
-      <li><%= link_to 'List', doctor_visit_path %></li>
+      <li><%= link_to 'Cancel', doctor_visit_path %></li>
     </ul>
   </div>
 <% end %>
