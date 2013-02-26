@@ -1,25 +1,18 @@
-<p id="notice"><%= notice %></p>
+<div data-role="navbar">
+	<ul>
+		<li><%= link_to 'Edit', edit_event_path(@event) %></li>
+		<li><%= link_to 'Delete', @event, method: :delete, data: { confirm: 'Are you sure?' } %></li>
+		<li><%= link_to 'List', events_path %>
+	</ul>
+</div>
 
-<p>
-  <b>Name:</b>
-  <%= @event.name %>
-</p>
-
-<p>
-  <b>Location:</b>
-  <%= @event.location %>
-</p>
-
-<p>
-  <b>Description:</b>
-  <%= @event.description %>
-</p>
-
-<p>
-  <b>Event date:</b>
-  <%= @event.event_date %>
-</p>
-
-
-<%= link_to 'Edit', edit_event_path(@event) %> |
-<%= link_to 'Back', events_path %>
+<ul data-role="listview" data-divider-theme="a" data-inset="true">
+	<li data-role="list-divider">Name</li>
+	<li><%= @event.name %></li>
+	<li data-role="list-divider">Location</li>
+	<li><%= @event.location %></li>
+	<li data-role="list-divider">Description</li>
+	<li><%= @event.description %></li> 
+	<li data-role="list-divider">Date</li>
+	<li><%= @event.event_date %></li>
+</ul>
