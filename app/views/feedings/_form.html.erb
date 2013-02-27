@@ -20,28 +20,17 @@
     <%= f.label :feeding_type %><br />
     <%= collection_select(:feeding, :feeding_type, Lookup.where("lookup_name='FeedingType'"), :lookup_key, :lookup_value ) %>
   </div>
-
-  <!-- <div class="field">
-    <%= f.label :feeding_type %><br />
-    <%= f.text_field :feeding_type %>
-  </div> -->
   
   <div class="field">
     <%= f.label :no_of_bottles %><br />
     <%= f.number_field :no_of_bottles %>
   </div>
   <div class="field">
-    <%= f.label :swallows_heard %>
-    <%= f.check_box :swallows_heard %>
-    |
-    <%= f.label :spit %>
-    <%= f.check_box :spit %>
-    |
     <%= f.label :wets %>
-    <%= f.check_box :wets %>
+    <%= f.select(:wets, options_for_select([['No',0], ['Yes',1]], @wets)) %>
     |
     <%= f.label :poops %>
-    <%= f.check_box :poops %>
+    <%= f.select(:poops, options_for_select([['No',0], ['Yes',1]], @poops)) %>
   </div>
   
   <div class="field">
