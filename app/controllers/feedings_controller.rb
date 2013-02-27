@@ -44,8 +44,9 @@ class FeedingsController < ApplicationController
   # GET /feedings/1/edit
   def edit
     @feeding = Feeding.find(params[:id])
-    @wets = 0
-    @poops = 0
+
+    @wets = '0'
+    @poops = '0'
     if @feeding.wets 
       @wets = '1'
     end

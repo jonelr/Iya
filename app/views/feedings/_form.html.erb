@@ -25,6 +25,7 @@
     <%= f.label :no_of_bottles %><br />
     <%= f.number_field :no_of_bottles %>
   </div>
+  <!-- we need to make this select tags -->
   <div class="field">
     <%= f.label :wets %>
     <%= f.select(:wets, options_for_select([['No',0], ['Yes',1]], @wets)) %>
