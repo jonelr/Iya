@@ -44,6 +44,10 @@ class FeedingsController < ApplicationController
   # GET /feedings/1/edit
   def edit
     @feeding = Feeding.find(params[:id])
+
+    respond_to do |format|
+      format.html
+    end
   end
 
   # POST /feedings

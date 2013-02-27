@@ -23,7 +23,17 @@
 
 <ul data-role="listview" data-divider-them="b" data-inset="true">
   <% @feedings.each do |feeding| %>
-    <li><%= link_to feeding.datetime.strftime('%m/%d/%Y %I:%M%p'), feeding %></li>
+    <li>
+        <div style="float: right; margin-right: 50px; font-size:smaller">
+        <% if feeding.wets %>
+            W&nbsp;
+        <% end %>
+        <% if feeding.poops %>
+            P&nbsp;
+        <% end %>
+        </div>
+        <%= link_to feeding.datetime.strftime('%m/%d/%Y %I:%M%p'), feeding %>
+    </li>
   <% end %>
 </ul>
 

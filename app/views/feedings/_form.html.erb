@@ -28,10 +28,10 @@
     <li><%= f.number_field :no_of_bottles %></li>
 
     <li data-role="list-divider"><%= f.label :wets %></li>
-    <li><%= f.check_box :wets %></li>
+    <li><%= f.select(:wets, options_for_select([['No', 0], ['Yes', 1]], :wets)) %></li>
 
     <li data-role="list-divider"><%= f.label :poops %></li>
-    <li><%= f.check_box :poops %></li>
+    <li><%= f.select(:poops, options_for_select([['No', '0'], ['Yes', '1']], :poops)) %></li>
 
     <li data-role="list-divider"><%= f.label :comments %></li>
     <li><%= f.text_area :comments %></li>
