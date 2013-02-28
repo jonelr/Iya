@@ -1,55 +1,22 @@
-<p id="notice"><%= notice %></p>
+<div data-role="navbar">
+  <ul>
+    <li><%= link_to 'Edit', edit_feeding_path(@feeding) %></li>
+    <li><%= link_to 'Delete', @feeding, method: :delete, data: { confirm: 'Are you sure?' } %></li>
+    <li><%= link_to 'List', feedings_path %>
+  </ul>
+</div>
 
-<!-- <p>
-  <b>Feeding date:</b>
-  <%= @feeding.feeding_date %>
-</p>
-
-<p>
-  <b>Feeding time:</b>
-  <%= @feeding.feeding_time %>
-</p> -->
-
-<p>
-<b>Feeding date:</b>
-<%= @feeding.datetime %>
-
-
-<p>
-  <b>Feeding type:</b>
-  <%= @feeding.feeding_type %>
-</p>
-
-<p>
-  <b>No of bottles:</b>
-  <%= @feeding.no_of_bottles %>
-</p>
-
-<p>
-  <b>Swallows heard:</b>
-  <%= @feeding.swallows_heard %>
-</p>
-
-<p>
-  <b>Spit:</b>
-  <%= @feeding.spit %>
-</p>
-
-<p>
-  <b>Wets:</b>
-  <%= @feeding.wets %>
-</p>
-
-<p>
-  <b>Poops:</b>
-  <%= @feeding.poops %>
-</p>
-
-<p>
-  <b>Comments:</b>
-  <%= @feeding.comments %>
-</p>
-
-
-<%= link_to 'Edit', edit_feeding_path(@feeding) %> |
-<%= link_to 'Back', feedings_path %>
+<ul data-role="listview" data-divider-theme="a" data-inset="true">
+  <li data-role="list-divider">Date</li>
+  <li><%= @feeding.datetime %></li>
+  <li data-role="list-divider">Type</li>
+  <li><%= @feeding.feeding_type %></li>
+  <li data-role="list-divider">Number of bottles</li>
+  <li><%= @feeding.no_of_bottles %></li> 
+  <li data-role="list-divider">Wets</li>
+  <li><%= @feeding.wets %></li>
+  <li data-role="list-divider">Poops</li>
+  <li><%= @feeding.poops %></li>
+  <li data-role="list-divider">Comments</li>
+  <li><%= @feeding.comments %></li>
+</ul>

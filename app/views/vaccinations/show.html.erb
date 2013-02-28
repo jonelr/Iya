@@ -1,25 +1,18 @@
-<p id="notice"><%= notice %></p>
+<div data-role="navbar">
+	<ul>
+		<li><%= link_to 'Edit', edit_vaccination_path(@vaccination) %></li>
+		<li><%= link_to 'Delete', @vaccination, method: :delete, data: { confirm: 'Are you sure?' } %></li>
+		<li><%= link_to 'List', vaccinations_path %>
+	</ul>
+</div>
 
-<p>
-  <b>Title:</b>
-  <%= @vaccination.title %>
-</p>
-
-<p>
-  <b>Type:</b>
-  <%= @vaccination.vacination_type %>
-</p>
-
-<p>
-  <b>Date:</b>
-  <%= @vaccination.date %>
-</p>
-
-<p>
-  <b>Description:</b>
-  <%= @vaccination.description %>
-</p>
-
-
-<%= link_to 'Edit', edit_vaccination_path(@vaccination) %> |
-<%= link_to 'Back', vaccinations_path %>
+<ul data-role="listview" data-divider-theme="a" data-inset="true">
+	<li data-role="list-divider">Title</li>
+	<li><%= @vaccination.title %></li>
+	<li data-role="list-divider">Vaccination Type</li>
+	<li><%= @vaccination.vacination_type %></li>
+	<li data-role="list-divider">Date</li>
+	<li><%= @vaccination.date.strftime('%m-%D-%Y') %></li> 
+	<li data-role="list-divider">Description</li>
+	<li><%= @vaccination.description %></li>
+</ul>

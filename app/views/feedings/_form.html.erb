@@ -11,34 +11,39 @@
     </div>
   <% end %>
 
-  <div class="field">
-    <%= f.label :datetime %><br />
-    <%= f.datetime_select :datetime %>
+  <div data-role="navbar" data-theme="b">
+    <ul>
+      <li><%= link_to 'Cancel', @feeding %></li>
+    </ul>
   </div>
 
-  <div class="field">
-    <%= f.label :feeding_type %><br />
-    <%= collection_select(:feeding, :feeding_type, Lookup.where("lookup_name='FeedingType'"), :lookup_key, :lookup_value ) %>
-  </div>
-  
-  <div class="field">
-    <%= f.label :no_of_bottles %><br />
-    <%= f.number_field :no_of_bottles %>
-  </div>
-  <!-- we need to make this select tags -->
-  <div class="field">
-    <%= f.label :wets %>
-    <%= f.select(:wets, options_for_select([['No',0], ['Yes',1]], @wets)) %>
-    |
-    <%= f.label :poops %>
-    <%= f.select(:poops, options_for_select([['No',0], ['Yes',1]], @poops)) %>
-  </div>
-  
-  <div class="field">
-    <%= f.label :comments %><br />
-    <%= f.text_area :comments %>
-  </div>
+  <ul data-role="listview" data-divider-theme="a" data-inset="true">
+    <li data-role="list-divider"><%= f.label :datetime %></li>
+    <li><%= f.datetime_select :datetime %></li>
+
+    <li data-role="list-divider"><%= f.label :feeding_type %></li>
+    <li><%= collection_select(:feeding, :feeding_type, Lookup.where("lookup_name='FeedingType'"), :lookup_key, :lookup_value ) %></li>
+
+    <li data-role="list-divider"><%= f.label :no_of_bottles %></li>
+    <li><%= f.number_field :no_of_bottles %></li>
+
+    <li data-role="list-divider"><%= f.label :wets %></li>
+    <li><%= f.select(:wets, options_for_select([['No', 0], ['Yes', 1]], @wets)) %></li>
+
+    <li data-role="list-divider"><%= f.label :poops %></li>
+    <li><%= f.select(:poops, options_for_select([['No', '0'], ['Yes', '1']], @poops)) %></li>
+
+    <li data-role="list-divider"><%= f.label :comments %></li>
+    <li><%= f.text_area :comments %></li>
+  </ul>
+
   <div class="actions">
     <%= f.submit %>
+  </div>
+
+  <div data-role="navbar">
+    <ul>
+      <li><%= link_to 'Cancel', @feeding %></li>
+    </ul>
   </div>
 <% end %>

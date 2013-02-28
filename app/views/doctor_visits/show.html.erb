@@ -1,20 +1,16 @@
-<p id="notice"><%= notice %></p>
+<div data-role="navbar">
+	<ul>
+		<li><%= link_to 'Edit', edit_doctor_visit_path(@doctor_visit) %></li>
+		<li><%= link_to 'Delete', @doctor_visit, method: :delete, data: { confirm: 'Are you sure?' } %></li>
+		<li><%= link_to 'List', doctor_visits_path %></li>
+	</ul>
+</div>
 
-<p>
-  <b>Date:</b>
-  <%= @doctor_visit.date %>
-</p>
-
-<p>
-  <b>For:</b>
-  <%= @doctor_visit.for %>
-</p>
-
-<p>
-  <b>Comment:</b>
-  <%= @doctor_visit.comment %>
-</p>
-
-
-<%= link_to 'Edit', edit_doctor_visit_path(@doctor_visit) %> |
-<%= link_to 'Back', doctor_visits_path %>
+<ul data-role="listview" data-divider-theme="a" data-inset="true">
+	<li data-role="list-divider">Date</li>
+	<li><%= @doctor_visit.date %></li>
+	<li data-role="list-divider">For</li>
+	<li><%= @doctor_visit.for %></li>
+	<li data-role="list-divider">Comment</li>
+	<li><%= @doctor_visit.comment %></li> 
+</ul>

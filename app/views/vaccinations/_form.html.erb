@@ -11,23 +11,33 @@
     </div>
   <% end %>
 
-  <div class="field">
-    <%= f.label :title %><br />
-    <%= f.text_field :title %>
+  <div data-role="navbar" data-theme="b">
+    <ul>
+      <li><%= link_to 'Cancel', vaccinations_path %></li>
+    </ul>
   </div>
-  <div class="field">
-    <%= f.label :vacination_type %><br />
-    <%= f.text_field :vacination_type %>
-  </div>
-  <div class="field">
-    <%= f.label :date %><br />
-    <%= f.date_select :date %>
-  </div>
-  <div class="field">
-    <%= f.label :description %><br />
-    <%= f.text_field :description %>
-  </div>
+
+  <ul data-role="listview" data-divider-theme="a" data-inset="true">
+    <li data-role="list-divider"><%= f.label :title %></li>
+    <li><%= f.text_field :title %></li>
+
+    <li data-role="list-divider"><%= f.label :vacination_type %></li>
+    <li><%= f.text_field :vacination_type %></li>
+
+    <li data-role="list-divider"><%= f.label :date %></li>
+    <li><%= f.date_select :date%></li>
+
+    <li data-role="list-divider"><%= f.label :description %></li>
+    <li><%= f.text_field :description %></li>
+  </ul>
+
   <div class="actions">
     <%= f.submit %>
+  </div>
+
+  <div data-role="navbar">
+    <ul>
+      <li><%= link_to 'Cancel', vaccinations_path %></li>
+    </ul>
   </div>
 <% end %>

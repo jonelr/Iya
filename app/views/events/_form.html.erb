@@ -11,23 +11,34 @@
     </div>
   <% end %>
 
-  <div class="field">
-    <%= f.label :name %><br />
-    <%= f.text_field :name %>
+  <div data-role="navbar" data-theme="b">
+    <ul>
+      <li><%= link_to 'Cancel', @event %></li>
+      <li><%= link_to 'List', events_path %></li>
   </div>
-  <div class="field">
-    <%= f.label :location %><br />
-    <%= f.text_field :location %>
-  </div>
-  <div class="field">
-    <%= f.label :description %><br />
-    <%= f.text_field :description %>
-  </div>
-  <div class="field">
-    <%= f.label :event_date %><br />
-    <%= f.date_select :event_date %>
-  </div>
+
+  <ul data-role="listview" data-divider-theme="a" data-inset="true">
+    <li data-role="list-divider"><%= f.label :name %></li>
+    <li><%= f.text_field :name %></li>
+
+    <li data-role="list-divider"><%= f.label :location %></li>
+    <li><%= f.text_field :location %></li>
+
+    <li data-role="list-divider"><%= f.label :description %></li>
+    <li><%= f.text_field :description %></li>
+
+    <li data-role="list-divider"><%= f.label :event_date %></li>
+    <li><%= f.date_select :event_date%></li>
+  </ul>
+
   <div class="actions">
     <%= f.submit %>
+  </div>
+
+  <div data-role="navbar">
+    <ul>
+      <li><%= link_to 'Cancel', @event %></li>
+      <li><%= link_to 'List', events_path %></li>
+    </ul>
   </div>
 <% end %>

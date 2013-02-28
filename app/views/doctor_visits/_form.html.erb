@@ -11,19 +11,42 @@
     </div>
   <% end %>
 
-  <div class="field">
-    <%= f.label :date %><br />
-    <%= f.datetime_select :date %>
+  <div data-role="navbar" data-theme="b">
+    <ul>
+      <li><%= link_to 'Cancel', doctor_visits_path %></li>
+    </ul>
   </div>
-  <div class="field">
-    <%= f.label :for %><br />
-    <%= f.text_field :for %>
-  </div>
-  <div class="field">
-    <%= f.label :comment %><br />
-    <%= f.text_area :comment %>
-  </div>
-  <div class="actions">
-    <%= f.submit %>
+
+  <ul data-role="listview" data-inset="true">
+    <li data-role="list-divider" data-theme="a">
+      <%= f.label :date %>
+    </li>
+    <li>
+      <%= f.datetime_select :date %>
+    </li>
+
+    <li data-role="list-divider" data-theme="a">
+      <%= f.label :for %>
+    </li>
+    <li>
+      <%= f.text_field :for %>
+    </li>
+
+    <li data-role="list-divider" data-theme="a">
+      <%= f.label :comment %>
+    </li>
+    <li>
+      <%= f.text_area :comment %>
+    </li>
+  
+    <div class="actions">
+      <%= f.submit %>
+    </div>
+  </ul>
+
+  <div data-role="navbar" data-theme="b">
+    <ul>
+      <li><%= link_to 'Cancel', doctor_visits_path %></li>
+    </ul>
   </div>
 <% end %>
