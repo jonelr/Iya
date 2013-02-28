@@ -8,13 +8,13 @@
 
 <ul data-role="listview" data-inset="true">
     <li data-role="list-divider" data-theme="a">
-        Curent stats for today <%= @date_today.strftime("%m/%d/%Y") %>
+        Current stats for today <%= @date_today.strftime("%m/%d/%Y") %>
     </li>
     <li>Poop count: <%= @poops %></li>
     <li>Wet count: <%= @wets %></li>
 
     <li data-role="list-divider" data-theme="a">
-        Curent stats for yesterday <%= (@date_today-1).strftime("%m/%d/%Y") %>
+        Current stats for yesterday <%= (@date_today-1).strftime("%m/%d/%Y") %>
     </li>
     <li>Poop count: <%= @poops_yesterday %></li>
     <li>Wet count: <%= @wets_yesterday %></li>

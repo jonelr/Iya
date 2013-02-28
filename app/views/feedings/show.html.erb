@@ -1,3 +1,4 @@
+<h1>Feeding</h1>
 <div data-role="navbar">
   <ul>
     <li><%= link_to 'Edit', edit_feeding_path(@feeding) %></li>
@@ -13,10 +14,21 @@
   <li><%= @feeding.feeding_type %></li>
   <li data-role="list-divider">Number of bottles</li>
   <li><%= @feeding.no_of_bottles %></li> 
+
+  <% if @feeding.wets %>
   <li data-role="list-divider">Wets</li>
-  <li><%= @feeding.wets %></li>
+  <li>
+    <%= @feeding.wets %>
+  </li>
+  <% end %>
+
+  <% if @feeding.poops %>
   <li data-role="list-divider">Poops</li>
-  <li><%= @feeding.poops %></li>
+  <li>
+    <%= @feeding.poops %>
+  </li>
+  <% end %>
+
   <li data-role="list-divider">Comments</li>
   <li><%= @feeding.comments %></li>
 </ul>
