@@ -45,7 +45,6 @@ class FeedingsController < ApplicationController
   def edit
     @feeding = Feeding.find(params[:id])
 
-<<<<<<< HEAD
     @wets = '0'
     @poops = '0'
     if @feeding.wets 
@@ -53,10 +52,9 @@ class FeedingsController < ApplicationController
     end
     if @feeding.poops
       @poops = '1'
-=======
+    end
     respond_to do |format|
       format.html
->>>>>>> d90584cbbddb81cb6d38444febb43c7e7297c65f
     end
   end
 
