@@ -1,4 +1,6 @@
 Iya::Application.routes.draw do
+  devise_for :users
+
   resources :lookups
 
   resources :doctor_visits

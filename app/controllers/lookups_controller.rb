@@ -1,4 +1,5 @@
 class LookupsController < ApplicationController
+  before_filter :authenticate_user!
   # GET /lookups
   # GET /lookups.json
   def index

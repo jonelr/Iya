@@ -1,4 +1,5 @@
 class FeedingsController < ApplicationController
+  before_filter :authenticate_user!
 
   # GET /feedings
   # GET /feedings.json
