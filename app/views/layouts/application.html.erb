@@ -33,8 +33,6 @@
             <li><%= link_to "Feeding", feedings_path, :data => {:'ajax' => "false"} %></li>
             <% if user_signed_in? %>
               <li><%= link_to "Logout", destroy_user_session_path, :method => :delete, :data => {:'ajax' => "false"} %></li>
-            <% else %>
-              <li><%= link_to "Login", "/users/sign_in", :data=>{:'ajax' => "false"} %></li>
             <% end %>
           </ul>
         </div>
