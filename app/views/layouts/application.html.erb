@@ -27,14 +27,14 @@
 	</div>
 
 	<div data-theme="a" data-role="footer" data-position="fixed">
-        <div data-role="navbar">
+        <div data-role="navbar" data-ajax="false">
           <ul>
             <li><%= link_to "Home", root_url %></li>
-            <li><%= link_to "Feeding", feedings_path %></li>
+            <li><%= link_to "Feeding", feedings_path, :data => {:'ajax' => "false"} %></li>
             <% if user_signed_in? %>
-              <li><%= link_to "Logout", destroy_user_session_path, :method => :delete %></li>
+              <li><%= link_to "Logout", destroy_user_session_path, :method => :delete, :data => {:'ajax' => "false"} %></li>
             <% else %>
-              <li><%= link_to "Login", "/users/sign_in" %></li>
+              <li><%= link_to "Login", "/users/sign_in", :data=>{:'data-ajax' => "false"} %></li>
             <% end %>
           </ul>
         </div>
