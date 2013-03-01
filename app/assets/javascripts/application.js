@@ -13,3 +13,8 @@
 //= require jquery
 //= require jquery_ujs
 //= require_tree .
+
+$(document).bind("mobileinit", function(){
+  //apply overrides here
+  $.mobile.ignoreContentEnabled
+});

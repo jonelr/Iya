@@ -1,8 +1,8 @@
 <ul data-role="listview" data-divider-them="b" data-inset="false">
-    <li><%= link_to 'Events', events_path, html_options = { :data_transition=>"fade", :data_theme=>"c" } %></li>
-    <li><%= link_to 'Contacts', contacts_path, html_options = { :data_transition=>"fade", :data_theme=>"c" } %></li>
-    <li><%= link_to 'Feeding', feedings_path, html_options = { :data_transition=>"fade", :data_theme=>"c" } %></li>
-    <li><%= link_to 'Vaccinations', vaccinations_path, html_options = { :data_transition=>"fade", :data_theme=>"c" } %></li>
-    <li><%= link_to 'Doctor Visits', doctor_visits_path, html_options = { :data_transition=>"fade", :data_theme=>"c" } %></li>
+    <li><%= link_to 'Events', events_path, html_options = { :data_ajax=> "false", :data_theme=>"c" } %></li>
+    <li><%= link_to 'Contacts', contacts_path, html_options = { :data_ajax=>"false", :data_theme=>"c" } %></li>
+    <li><%= link_to 'Feeding', feedings_path, html_options = { :data_ajax=>"false", :data_theme=>"c" } %></li>
+    <li><%= link_to 'Vaccinations', vaccinations_path, html_options = { :data_ajax=>"false", :data_theme=>"c" } %></li>
+    <li><%= link_to 'Doctor Visits', doctor_visits_path, html_options = { :data_ajax=>"false", :data_theme=>"c" } %></li>
 </ul>
 
