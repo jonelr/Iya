@@ -3,7 +3,7 @@
   <ul>
     <li><%= link_to 'Edit', edit_feeding_path(@feeding) %></li>
     <li><%= link_to 'Delete', @feeding, method: :delete, data: { confirm: 'Are you sure?' } %></li>
-    <li><%= link_to 'List', feedings_path %>
+    <li><%= link_to 'List', feedings_path, :data=> { :ajax => "false"} %>
   </ul>
 </div>
 
