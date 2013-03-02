@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20130301171744) do
+ActiveRecord::Schema.define(:version => 20130302195858) do
 
   create_table "contacts", :force => true do |t|
     t.string   "firstname"
@@ -56,6 +56,7 @@ ActiveRecord::Schema.define(:version => 20130301171744) do
     t.datetime "created_at",     :null => false
     t.datetime "updated_at",     :null => false
     t.datetime "datetime"
+    t.string   "owner"
   end
 
   create_table "lookups", :force => true do |t|
@@ -64,6 +65,15 @@ ActiveRecord::Schema.define(:version => 20130301171744) do
     t.string   "lookup_value"
     t.datetime "created_at",   :null => false
     t.datetime "updated_at",   :null => false
+  end
+
+  create_table "todos", :force => true do |t|
+    t.string   "title"
+    t.datetime "duedate"
+    t.string   "status"
+    t.text     "description"
+    t.datetime "created_at",  :null => false
+    t.datetime "updated_at",  :null => false
   end
 
   create_table "users", :force => true do |t|

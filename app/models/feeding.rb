@@ -1,8 +1,9 @@
 class Feeding < ActiveRecord::Base
-  attr_accessible :comments, :feeding_date, :feeding_time, :feeding_type, :no_of_bottles, :poops, :spit, :swallows_heard, :wets,:datetime
+  attr_accessible :comments, :feeding_date, :feeding_time, :feeding_type, :no_of_bottles, :poops, :spit, :swallows_heard, :wets,:datetime, :owner
   self.per_page = 10
   default_scope order('datetime desc')
 
+  # scope :owned_items, where ('owner=?', current_user)
   scope :wets, where('wets = true')
   scope :poops, where('poops = true')
 
