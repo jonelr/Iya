@@ -45,6 +45,7 @@ class ContactsController < ApplicationController
 
     if @contact and @contact.owner != current_user.email
       redirect_to :action=>"index"
+    end
   end
 
   # POST /contacts
@@ -88,6 +89,7 @@ class ContactsController < ApplicationController
 
     if @contact and @contact.owner == current_user.email
       @contact.destroy
+    end
 
     respond_to do |format|
       format.html { redirect_to contacts_url }
