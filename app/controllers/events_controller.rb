@@ -3,7 +3,7 @@ class EventsController < ApplicationController
   # GET /events
   # GET /events.json
   def index
-    @events = Event.order("event_date desc").all
+    @events = Event.where("owner=?", current_user.email)
     @page_title = "Events listing"
 
     respond_to do |format|
@@ -17,9 +17,13 @@ class EventsController < ApplicationController
   def show
     @event = Event.find(params[:id])
 
-    respond_to do |format|
-      format.html # show.html.erb
-      format.json { render json: @event }
+    if @event and @event.owner == current_user.email
+      respond_to do |format|
+        format.html # show.html.erb
+        format.json { render json: @event }
+      end
+    else
+      redirect_to events_url
     end
   end
 
@@ -27,6 +31,7 @@ class EventsController < ApplicationController
   # GET /events/new.json
   def new
     @event = Event.new
+    @event.owner = current_user.email
 
     respond_to do |format|
       format.html # new.html.erb
@@ -37,6 +42,10 @@ class EventsController < ApplicationController
   # GET /events/1/edit
   def edit
     @event = Event.find(params[:id])
+
+    if @event and @event.owner != current_user.email
+      redirect_to events_url
+    end
   end
 
   # POST /events
@@ -60,13 +69,15 @@ class EventsController < ApplicationController
   def update
     @event = Event.find(params[:id])
 
-    respond_to do |format|
-      if @event.update_attributes(params[:event])
-        format.html { redirect_to @event, notice: 'Event was successfully updated.' }
-        format.json { head :no_content }
-      else
-        format.html { render action: "edit" }
-        format.json { render json: @event.errors, status: :unprocessable_entity }
+    if @event and @event.owner == current_user.email
+      respond_to do |format|
+        if @event.update_attributes(params[:event])
+          format.html { redirect_to @event, notice: 'Event was successfully updated.' }
+          format.json { head :no_content }
+        else
+          format.html { render action: "edit" }
+          format.json { render json: @event.errors, status: :unprocessable_entity }
+        end
       end
     end
   end
@@ -75,7 +86,9 @@ class EventsController < ApplicationController
   # DELETE /events/1.json
   def destroy
     @event = Event.find(params[:id])
-    @event.destroy
+    if @event and @event.owner == current_user.email
+      @event.destroy
+    end
 
     respond_to do |format|
       format.html { redirect_to events_url }

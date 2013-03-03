@@ -3,7 +3,7 @@ class VaccinationsController < ApplicationController
   # GET /vaccinations
   # GET /vaccinations.json
   def index
-    @vaccinations = Vaccination.all
+    @vaccinations = Vaccination.where("owner=?", current_user.email)
 
     respond_to do |format|
       format.html # index.html.erb
@@ -15,10 +15,13 @@ class VaccinationsController < ApplicationController
   # GET /vaccinations/1.json
   def show
     @vaccination = Vaccination.find(params[:id])
-
-    respond_to do |format|
-      format.html # show.html.erb
-      format.json { render json: @vaccination }
+    if @vaccination and @vaccination.owner == current_user.email
+      respond_to do |format|
+        format.html # show.html.erb
+        format.json { render json: @vaccination }
+      end
+    else
+      redirect_to vaccinations_url
     end
   end
 
@@ -26,6 +29,7 @@ class VaccinationsController < ApplicationController
   # GET /vaccinations/new.json
   def new
     @vaccination = Vaccination.new
+    @vaccination.owner = current_user.email
 
     respond_to do |format|
       format.html # new.html.erb
@@ -36,6 +40,9 @@ class VaccinationsController < ApplicationController
   # GET /vaccinations/1/edit
   def edit
     @vaccination = Vaccination.find(params[:id])
+    if @vaccination and @vaccination.owner != current_user.email
+      redirect_to vaccinations_url
+    end
   end
 
   # POST /vaccinations
@@ -59,13 +66,15 @@ class VaccinationsController < ApplicationController
   def update
     @vaccination = Vaccination.find(params[:id])
 
-    respond_to do |format|
-      if @vaccination.update_attributes(params[:vaccination])
-        format.html { redirect_to @vaccination, notice: 'Vaccination was successfully updated.' }
-        format.json { head :no_content }
-      else
-        format.html { render action: "edit" }
-        format.json { render json: @vaccination.errors, status: :unprocessable_entity }
+    if @vaccination and @vaccination.owner == current_user.email
+      respond_to do |format|
+        if @vaccination.update_attributes(params[:vaccination])
+          format.html { redirect_to @vaccination, notice: 'Vaccination was successfully updated.' }
+          format.json { head :no_content }
+        else
+          format.html { render action: "edit" }
+          format.json { render json: @vaccination.errors, status: :unprocessable_entity }
+        end
       end
     end
   end
@@ -74,8 +83,10 @@ class VaccinationsController < ApplicationController
   # DELETE /vaccinations/1.json
   def destroy
     @vaccination = Vaccination.find(params[:id])
-    @vaccination.destroy
-
+    if @vaccination and @vaccination.owner == current_user.email
+      @vaccination.destroy
+    end
+    
     respond_to do |format|
       format.html { redirect_to vaccinations_url }
       format.json { head :no_content }

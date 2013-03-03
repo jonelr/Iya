@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20130302195858) do
+ActiveRecord::Schema.define(:version => 20130302233822) do
 
   create_table "contacts", :force => true do |t|
     t.string   "firstname"
@@ -24,6 +24,7 @@ ActiveRecord::Schema.define(:version => 20130302195858) do
     t.datetime "created_at", :null => false
     t.datetime "updated_at", :null => false
     t.string   "phone"
+    t.string   "owner"
   end
 
   create_table "doctor_visits", :force => true do |t|
@@ -32,6 +33,7 @@ ActiveRecord::Schema.define(:version => 20130302195858) do
     t.text     "comment"
     t.datetime "created_at", :null => false
     t.datetime "updated_at", :null => false
+    t.string   "owner"
   end
 
   create_table "events", :force => true do |t|
@@ -41,6 +43,7 @@ ActiveRecord::Schema.define(:version => 20130302195858) do
     t.date     "event_date"
     t.datetime "created_at",  :null => false
     t.datetime "updated_at",  :null => false
+    t.string   "owner"
   end
 
   create_table "feedings", :force => true do |t|
@@ -101,6 +104,7 @@ ActiveRecord::Schema.define(:version => 20130302195858) do
     t.string   "vacination_type"
     t.datetime "created_at",      :null => false
     t.datetime "updated_at",      :null => false
+    t.string   "owner"
   end
 
 end

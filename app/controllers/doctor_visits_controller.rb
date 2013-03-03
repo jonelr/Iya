@@ -3,7 +3,7 @@ class DoctorVisitsController < ApplicationController
   # GET /doctor_visits
   # GET /doctor_visits.json
   def index
-    @doctor_visits = DoctorVisit.all
+    @doctor_visits = DoctorVisit.where("owner=?", current_user.email)
 
     respond_to do |format|
       format.html # index.html.erb
@@ -16,9 +16,13 @@ class DoctorVisitsController < ApplicationController
   def show
     @doctor_visit = DoctorVisit.find(params[:id])
 
-    respond_to do |format|
-      format.html # show.html.erb
-      format.json { render json: @doctor_visit }
+    if @doctor_visit and @doctor_visit.owner == current_user.email
+      respond_to do |format|
+        format.html # show.html.erb
+        format.json { render json: @doctor_visit }
+      end
+    else
+      redirect_to doctor_visits_url
     end
   end
 
@@ -26,6 +30,7 @@ class DoctorVisitsController < ApplicationController
   # GET /doctor_visits/new.json
   def new
     @doctor_visit = DoctorVisit.new
+    @doctor_visit.owner = current_user.email
 
     respond_to do |format|
       format.html # new.html.erb
@@ -36,10 +41,15 @@ class DoctorVisitsController < ApplicationController
   # GET /doctor_visits/1/edit
   def edit
     @doctor_visit = DoctorVisit.find(params[:id])
+
+    if @doctor_visit and @doctor_visit.owner != current_user.email
+      redirect_to doctor_visits_url
+    end
   end
 
   # POST /doctor_visits
   # POST /doctor_visits.json
+  # No changes
   def create
     @doctor_visit = DoctorVisit.new(params[:doctor_visit])
 
@@ -59,13 +69,15 @@ class DoctorVisitsController < ApplicationController
   def update
     @doctor_visit = DoctorVisit.find(params[:id])
 
-    respond_to do |format|
-      if @doctor_visit.update_attributes(params[:doctor_visit])
-        format.html { redirect_to @doctor_visit, notice: 'Doctor visit was successfully updated.' }
-        format.json { head :no_content }
-      else
-        format.html { render action: "edit" }
-        format.json { render json: @doctor_visit.errors, status: :unprocessable_entity }
+    if @doctor_visit and @doctor_visit.owner == current_user.email
+      respond_to do |format|
+        if @doctor_visit.update_attributes(params[:doctor_visit])
+          format.html { redirect_to @doctor_visit, notice: 'Doctor visit was successfully updated.' }
+          format.json { head :no_content }
+        else
+          format.html { render action: "edit" }
+          format.json { render json: @doctor_visit.errors, status: :unprocessable_entity }
+        end
       end
     end
   end
@@ -74,7 +86,9 @@ class DoctorVisitsController < ApplicationController
   # DELETE /doctor_visits/1.json
   def destroy
     @doctor_visit = DoctorVisit.find(params[:id])
-    @doctor_visit.destroy
+    if @doctor_visit and @doctor_visit.owner == current_user.email
+      @doctor_visit.destroy
+    end
 
     respond_to do |format|
       format.html { redirect_to doctor_visits_url }

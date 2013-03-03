@@ -29,6 +29,8 @@
 
     <li data-role="list-divider"><%= f.label :event_date %></li>
     <li><%= f.date_select :event_date%></li>
+    <%= f.hidden_field :owner %>
+    
   </ul>
 
   <div class="actions">
