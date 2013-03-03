@@ -5,9 +5,11 @@ one:
   description: MyString
   title: MyString
   vacination_type: MyString
+  owner: joe.net@me.com
 
 two:
   date: 2013-02-25
   description: MyString
   title: MyString
   vacination_type: MyString
+  owner: joe.net@me.com

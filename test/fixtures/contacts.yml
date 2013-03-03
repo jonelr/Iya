@@ -1,13 +1,14 @@
 # Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/Fixtures.html
 
 one:
-  firstname: MyString
-  lastname: MyString
+  firstname: onef
+  lastname: onel
   email: MyString
   address: MyString
   city: MyString
   state: MyString
   zipcode: MyString
+  owner: owner_1
 
 two:
   firstname: MyString
@@ -17,3 +18,4 @@ two:
   city: MyString
   state: MyString
   zipcode: MyString
+  owner: owner_2
