@@ -1,0 +1,15 @@
+<h1>Listing notes</h1>
+
+<div data-role="navbar" data-bar-theme="c" data-ajax="false">
+  <ul>
+    <li><%= link_to 'New...', new_note_path %></li>
+  </ul>
+</div>
+
+<ul data-role="listview" data-divider-them="b" data-inset="true">
+  <% @notes.each do |note| %>
+    <li>
+      <%= link_to note.title, note %>
+    </li>
+  <% end %>
+</ul>
