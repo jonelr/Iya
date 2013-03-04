@@ -1,0 +1,30 @@
+<%= form_for(@note) do |f| %>
+  <% if @note.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(@note.errors.count, "error") %> prohibited this note from being saved:</h2>
+
+      <ul>
+      <% @note.errors.full_messages.each do |msg| %>
+        <li><%= msg %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div data-role="navbar" data-theme="b">
+    <ul>
+      <li><%= link_to 'Cancel', @note, :data=>{'ajax'=>'false'} %></li>
+      <li><%= link_to 'List', notes_path, :data=>{'ajax'=>'false'} %></li>
+  </div>
+
+  <ul data-role="listview" data-divider-theme="a" data-inset="true">
+    <li data-role="list-divider"><%= f.label :title %></li>
+    <li><%= f.text_field :title %></li>
+
+    <li data-role="list-divider"><%= f.label :description %></li>
+    <li><%= f.text_field :description %></li>
+  </ul>
+  <div class="actions">
+    <%= f.submit %>
+  </div>
+<% end %>
