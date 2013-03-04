@@ -7,10 +7,13 @@ class Feeding < ActiveRecord::Base
   scope :wets, where('wets = true')
   scope :poops, where('poops = true')
 
-  scope :current_day_wets, where('wets = true and month(datetime)=? and day(datetime)=?', Date.today.mon, Date.today.day)
-  scope :current_day_poops, where('poops = true and month(datetime)=? and day(datetime)=?', Date.today.mon, Date.today.day)
+  scope :current_day_wets, lambda { |owner| where('owner=? and wets = true and month(datetime)=? and day(datetime)=?',owner, Date.today.mon, Date.today.day) unless owner.nil? }
+  
 
-  scope :yesterday_wets, where('wets = true and month(datetime)=? and day(datetime)=?', Date.today.mon, Date.today.day-1)
-  scope :yesterday_poops, where('poops = true and month(datetime)=? and day(datetime)=?', Date.today.mon, Date.today.day-1)
+  scope :current_day_poops, lambda { |owner| where('owner=? and poops = true and month(datetime)=? and day(datetime)=?', owner, Date.today.mon, Date.today.day) unless owner.nil? }
+
+  scope :yesterday_wets, lambda { |owner| where('owner=? and wets = true and month(datetime)=? and day(datetime)=?', owner, Date.today.mon, Date.today.day-1) unless owner.nil? }
+
+  scope :yesterday_poops, lambda { |owner| where('owner=? and poops = true and month(datetime)=? and day(datetime)=?', owner, Date.today.mon, Date.today.day-1) unless owner.nil? }
 
 end

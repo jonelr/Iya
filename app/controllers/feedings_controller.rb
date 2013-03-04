@@ -7,13 +7,13 @@ class FeedingsController < ApplicationController
     @feedings = Feeding.where("owner=?", current_user.email).paginate(:page => params[:page]).order("datetime desc")
     @page_title = "Feeding listing"
 
-    @wets = Feeding.current_day_wets.count
-    @poops = Feeding.current_day_poops.count
+    @wets = Feeding.current_day_wets(current_user.email).count
+    @poops = Feeding.current_day_poops(current_user.email).count
 
     @date_today = Date.today
 
-    @wets_yesterday = Feeding.yesterday_wets.count
-    @poops_yesterday = Feeding.yesterday_poops.count
+    @wets_yesterday = Feeding.yesterday_wets(current_user.email).count
+    @poops_yesterday = Feeding.yesterday_poops(current_user.email).count
 
     respond_to do |format|
       format.html # index.html.erb
