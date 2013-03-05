@@ -3,7 +3,7 @@ class ContactsController < ApplicationController
   # GET /contacts
   # GET /contacts.json
   def index
-    @contacts = Contact.where("owner=?", current_user.email)
+    @contacts = Contact.by_owner(current_user.email)
 
     respond_to do |format|
       format.html # index.html.erb

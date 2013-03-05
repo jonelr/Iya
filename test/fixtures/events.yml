@@ -5,9 +5,11 @@ one:
   location: MyString
   description: MyString
   event_date: 2013-02-17
+  owner: joe.net@me.com
 
 two:
   name: MyString
   location: MyString
   description: MyString
   event_date: 2013-02-17
+  owner: joe.net@me.com

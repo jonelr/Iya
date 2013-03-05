@@ -10,6 +10,7 @@ one:
   wets: false
   poops: false
   comments: MyText
+  owner: joe.net@me.com
 
 two:
   feeding_date: 2013-02-19
@@ -21,3 +22,4 @@ two:
   wets: false
   poops: false
   comments: MyText
+  owner: joe.net@me.com

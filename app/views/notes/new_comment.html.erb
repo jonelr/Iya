@@ -1,0 +1,12 @@
+<h1>Add comments</h1>
+<%= form_for @note, :url=>{:action=>'create_comment', :id=>@note.id, :method=>"put"} do |f| %>
+<ul data-role="listview" data-inset="true">
+	<li data-role="listview-divider">Comment</li>
+	<%= fields_for :comments do |comments| %>
+	<li><%= comments.text_area :notes %></li>
+	<% end %>
+</ul>
+<div class="actions">
+    <%= f.submit %>
+</div>
+<% end %>

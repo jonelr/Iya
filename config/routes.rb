@@ -1,4 +1,9 @@
 Iya::Application.routes.draw do
+  get "notes/new_comment"
+  put "notes/create_comment"
+  
+  resources :notes
+
   devise_for :users
 
   resources :lookups

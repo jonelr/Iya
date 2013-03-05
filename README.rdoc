@@ -10,5 +10,7 @@ me get started right away in less than a few hours.
 
 == What's new
 
-1. 02/28/2013 - Fully converted the UI to mobile using jquerymobile
+1. 03/03/2013 - Testing Ruby 2.0
+1.1 /usr/bin/ruby => /etc/alternatives/ruby
+2. 02/28/2013 - Fully converted the UI to mobile using jquerymobile
 

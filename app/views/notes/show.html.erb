@@ -1,0 +1,29 @@
+<div data-role="navbar">
+	<ul>
+		<li><%= link_to 'Edit', edit_note_path(@note) %></li>
+		<li><%= link_to 'Delete', @note, method: :delete, data: { confirm: 'Are you sure?' } %></li>
+		<li><%= link_to 'List', notes_path, :data=>{:ajax=>"false"} %>
+	</ul>
+</div>
+
+<ul data-role="listview" data-divider-theme="a" data-inset="true">
+	<li data-role="list-divider">Title</li>
+	<li><%= @note.title %></li>
+	<li data-role="list-divider">Description</li>
+	<li><%= @note.description %></li>
+	<li data-role="list-divider">Comments</li>
+	<% @note.comments.each do |comment| %>
+	<li>
+		<%= comment.notes %>
+	</li>
+	<% end%>
+	<li><%= link_to 'Add comments', :action=>'new_comment', :id=>@note.id %></li>
+</ul>
+
+<div data-role="navbar">
+	<ul>
+		<li><%= link_to 'Edit', edit_note_path(@note) %></li>
+		<li><%= link_to 'Delete', @note, method: :delete, data: { confirm: 'Are you sure?' } %></li>
+		<li><%= link_to 'List', notes_path, :data=>{:ajax=>"false"} %>
+	</ul>
+</div>
