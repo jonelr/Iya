@@ -15,6 +15,7 @@
     <ul>
       <li><%= link_to 'Cancel', @note, :data=>{'ajax'=>'false'} %></li>
       <li><%= link_to 'List', notes_path, :data=>{'ajax'=>'false'} %></li>
+    </ul>
   </div>
 
   <ul data-role="listview" data-divider-theme="a" data-inset="true">
@@ -23,6 +24,7 @@
 
     <li data-role="list-divider"><%= f.label :description %></li>
     <li><%= f.text_field :description %></li>
+    <%= f.hidden_field :owner %>
   </ul>
   <div class="actions">
     <%= f.submit %>

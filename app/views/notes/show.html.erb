@@ -14,7 +14,7 @@
 	<li data-role="list-divider">Comments</li>
 	<% @note.comments.each do |comment| %>
 	<li>
-		<%= comment %>
+		<%= comment.notes %>
 	</li>
 	<% end%>
 	<li><%= link_to 'Add comments', :action=>'new_comment', :id=>@note.id %></li>
