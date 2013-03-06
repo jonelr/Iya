@@ -1,8 +1,8 @@
 <div data-role="navbar">
 	<ul>
-		<li><%= link_to 'Edit', edit_vaccination_path(@vaccination) %></li>
-		<li><%= link_to 'Delete', @vaccination, method: :delete, data: { confirm: 'Are you sure?' } %></li>
-		<li><%= link_to 'List', vaccinations_path %>
+		<li><%= link_to 'Edit', edit_vaccination_path(@vaccination), :data=>{:icon=>"edit"} %></li>
+		<li><%= link_to 'Delete', @vaccination, method: :delete, :data=> { :confirm=> 'Are you sure?', :icon=>"delete" } %></li>
+		<li><%= link_to 'List', vaccinations_path, :data=>{:icon=>"bars"} %>
 	</ul>
 </div>
 

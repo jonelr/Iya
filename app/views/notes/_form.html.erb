@@ -13,8 +13,8 @@
 
   <div data-role="navbar" data-theme="b">
     <ul>
-      <li><%= link_to 'Cancel', @note, :data=>{'ajax'=>'false'} %></li>
-      <li><%= link_to 'List', notes_path, :data=>{'ajax'=>'false'} %></li>
+      <li><%= link_to 'Cancel', @note, :data=>{:ajax=>'false', :icon=>"back"} %></li>
+      <li><%= link_to 'List', notes_path, :data=>{:ajax=>'false', :icon=>"bars"} %></li>
     </ul>
   </div>
 

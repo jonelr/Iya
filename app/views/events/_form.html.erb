@@ -13,8 +13,9 @@
 
   <div data-role="navbar" data-theme="b">
     <ul>
-      <li><%= link_to 'Cancel', @event %></li>
-      <li><%= link_to 'List', events_path %></li>
+      <li><%= link_to 'Cancel', @event, :data=>{:icon=>"back"} %></li>
+      <li><%= link_to 'List', events_path, :data=>{:icon=>"bars"} %></li>
+    </ul>
   </div>
 
   <ul data-role="listview" data-divider-theme="a" data-inset="true">
@@ -39,8 +40,8 @@
 
   <div data-role="navbar">
     <ul>
-      <li><%= link_to 'Cancel', @event %></li>
-      <li><%= link_to 'List', events_path %></li>
+      <li><%= link_to 'Cancel', @event, :data=>{:icon=>"back"} %></li>
+      <li><%= link_to 'List', events_path, :data=>{:icon=>"bars"} %></li>
     </ul>
   </div>
 <% end %>

@@ -1,8 +1,8 @@
-<ul data-role="listview" data-divider-them="b" data-inset="false">
-	<li><%= link_to "Events", events_path, :data => {'ajax' => "false"} %></li>
-	<li><%= link_to "Contacts", contacts_path, :data => {'ajax' => "false"} %></li>
-	<li><%= link_to "Feedings", feedings_path, :data => {'ajax' => "false"} %></li>
-	<li><%= link_to "Vaccinations", vaccinations_path, :data => {'ajax' => "false"} %></li>
-	<li><%= link_to "Doctor Visits", doctor_visits_path, :data => {'ajax' => "false"} %></li>
-	<li><%= link_to "Notes", notes_path, :data => {'ajax' => "false"} %></li>
+<ul data-role="listview" data-divider-them="b" data-inset="true">
+	<li><%= link_to "Events", events_path, :data => {:'ajax' => "false", :icon=>"edit"} %></li>
+	<li><%= link_to "Contacts", contacts_path, :data => {:'ajax' => "false"} %></li>
+	<li><%= link_to "Feedings", feedings_path, :data => {:'ajax' => "false"} %></li>
+	<li><%= link_to "Vaccinations", vaccinations_path, :data => {:'ajax' => "false"} %></li>
+	<li><%= link_to "Doctor Visits", doctor_visits_path, :data => {:'ajax' => "false"} %></li>
+	<li><%= link_to "Notes", notes_path, :data => {:'ajax' => "false"} %></li>
 </ul>

@@ -1,8 +1,8 @@
 <div data-role="navbar">
 	<ul>
-		<li><%= link_to 'Edit', edit_doctor_visit_path(@doctor_visit) %></li>
-		<li><%= link_to 'Delete', @doctor_visit, method: :delete, data: { confirm: 'Are you sure?' } %></li>
-		<li><%= link_to 'List', doctor_visits_path, :data=>{:ajax=>"false"} %></li>
+		<li><%= link_to 'Edit', edit_doctor_visit_path(@doctor_visit), :data=>{:icon=>"edit"} %></li>
+		<li><%= link_to 'Delete', @doctor_visit, method: :delete, :data=> { :confirm => 'Are you sure?', :icon=>"delete" } %></li>
+		<li><%= link_to 'List', doctor_visits_path, :data=>{:ajax=>"false", :icon=>"bars"} %></li>
 	</ul>
 </div>
 

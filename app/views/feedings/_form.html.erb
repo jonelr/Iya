@@ -13,7 +13,7 @@
 
   <div data-role="navbar" data-theme="b">
     <ul>
-      <li><%= link_to 'Cancel', @feeding %></li>
+      <li><%= link_to 'Cancel', @feeding, :data=>{:icon=>"back"} %></li>
     </ul>
   </div>
 
@@ -45,7 +45,7 @@
 
   <div data-role="navbar">
     <ul>
-      <li><%= link_to 'Cancel', @feeding %></li>
+      <li><%= link_to 'Cancel', @feeding, :data=>{:icon=>"back"} %></li>
     </ul>
   </div>
 <% end %>

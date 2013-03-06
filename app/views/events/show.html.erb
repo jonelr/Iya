@@ -1,8 +1,9 @@
+<h1>Event</h1>
 <div data-role="navbar">
 	<ul>
-		<li><%= link_to 'Edit', edit_event_path(@event) %></li>
-		<li><%= link_to 'Delete', @event, method: :delete, data: { confirm: 'Are you sure?' } %></li>
-		<li><%= link_to 'List', events_path, :data=>{:ajax=>"false"} %>
+		<li><%= link_to 'Edit', edit_event_path(@event), :data=>{:icon=>"edit"} %></li>
+		<li><%= link_to 'Delete', @event, :method => :delete, :data=>{:icon=>"delete", :confirm=>"Are you sure?"}  %></li>
+		<li><%= link_to 'List', events_path, :data=>{:ajax=>"false", :icon=>"bars"} %>
 	</ul>
 </div>
 

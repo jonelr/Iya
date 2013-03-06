@@ -1,7 +1,7 @@
 <h1>Listing Doctor's Visits</h1>
 <div data-role="navbar" data-bar-theme="c">
   <ul>
-    <li><%= link_to 'New Doctor visit', :controller => "doctor_visits", :action=> "new" %></li>
+    <li><%= link_to 'New Doctor visit', new_doctor_visit_path, :data=>{:icon=>"plus"} %></li>
   </ul>
 </div>
 
